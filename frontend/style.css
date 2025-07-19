@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 700px; /* Un poco más ancho para los gastos */
+    text-align: center;
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 25px;
+}
+
+/* Estilos base para la lista de gastos (se ampliarán) */
+#gastos-list {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #fafafa;
+    min-height: 100px;
+    text-align: left;
+}

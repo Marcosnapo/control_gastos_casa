@@ -1,0 +1,19 @@
+# Ignorar directorios de entorno virtual
+venv/
+env/
+
+# Ignorar archivos compilados de Python
+__pycache__/
+*.pyc
+
+# Ignorar archivos de base de datos SQLite
+*.db
+
+# Ignorar archivos de configuración sensibles (tokens, claves, etc.)
+Tokengithub.txt
+.env
+
+# Ignorar archivos específicos del sistema operativo o editores
+.DS_Store # macOS
+Thumbs.db # Windows
+.vscode/ # Directorio de configuración de VS Code
