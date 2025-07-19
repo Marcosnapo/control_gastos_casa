@@ -4,9 +4,10 @@ body {
     margin: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     min-height: 100vh;
     color: #333;
+    padding: 20px 0;
 }
 
 .container {
@@ -15,16 +16,90 @@ body {
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     width: 90%;
-    max-width: 700px; /* Un poco más ancho para los gastos */
+    max-width: 700px;
     text-align: center;
 }
 
 h1 {
     color: #2c3e50;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
+    font-size: 2.2em;
 }
 
-/* Estilos base para la lista de gastos (se ampliarán) */
+h2 {
+    color: #34495e;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 1.6em;
+}
+
+/* Estilos del formulario */
+.add-gasto-form {
+    background-color: #ecf0f1;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group select {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    background-color: #28a745; /* Verde para añadir */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* Mensajes de formulario (éxito/error) */
+.message {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    display: none;
+}
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Estilos de la lista de gastos */
 #gastos-list {
     margin-top: 20px;
     padding: 15px;
@@ -32,4 +107,98 @@ h1 {
     background-color: #fafafa;
     min-height: 100px;
     text-align: left;
+}
+
+.loading-message {
+    text-align: center;
+    color: #777;
+}
+
+.gasto-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.gasto-item:last-child {
+    border-bottom: none;
+}
+
+.gasto-info {
+    flex-grow: 1;
+}
+
+.gasto-descripcion {
+    font-weight: bold;
+    color: #34495e;
+    margin-right: 8px;
+    /* Estilo para gastos pagados/conciliados */
+    text-decoration: none; /* Por defecto no tachado */
+}
+.gasto-item.pagado .gasto-descripcion,
+.gasto-item.pagado .gasto-monto {
+    text-decoration: line-through;
+    color: #7f8c8d; /* Color más tenue para los pagados */
+}
+
+
+.gasto-monto {
+    font-weight: bold;
+    color: #e74c3c;
+    margin-left: 5px;
+}
+
+.gasto-categoria {
+    font-size: 0.85em;
+    color: #7f8c8d;
+    margin-right: 8px;
+}
+
+.gasto-fecha {
+    font-size: 0.85em;
+    color: #95a5a6;
+}
+
+.gasto-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.gasto-actions input[type="checkbox"] {
+    transform: scale(1.3);
+    cursor: pointer;
+}
+
+/* Estilos para el botón de eliminar */
+.delete-btn {
+    background-color: #dc3545; /* Rojo para eliminar */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* Media Queries para responsividad básica */
+@media (max-width: 600px) {
+    .gasto-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .gasto-info {
+        margin-bottom: 8px;
+    }
+    .gasto-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
 }
